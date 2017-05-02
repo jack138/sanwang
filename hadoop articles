@@ -5,3 +5,40 @@ https://www.iteblog.com/archives/1330.html
 
 
 http://blog.fens.me/hadoop-hive-roadmap/
+
+======
+
+遇到的问题：
+1、 Java.lang.ClassNotFoundException: org.apache.Hadoop.hive.jdbc.HiveDriver
+     突然发现多写了一个Hadoop，这个路径写错了，Hadoop是多余的，应该是 org.apache.hive.jdbc.HiveDriver
+
+2、 java.sql.SQLException: No suitable driver found for jdbc:hive://192.168.10.100:11111/default
+     这是由于我使用的是hive1.2.1版本，到此版本后URL地址应该写成 jdbc:hive2://192.168.10.100:11111/default
+
+3、 java.sql.SQLException: Could not open client transport with JDBC Uri: jdbc:hive2://192.168.10.100:11111/default: java.NET.ConnectException: Connection refused
+      这是由于远程hive集群没有启动hiveserver2导致的。
+
+4、出现异常java.sql.SQLException: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+   到hive后台查看日志
+   Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.security.AccessControlException): Permission denied: user=hive, access=EXECUTE, inode="/tmp":root:supergroup:drwxrwx---
+     权限问题，所以切换一下用户试一下，在我的代码
+//hive的jdbc驱动类
+public static String dirverName = "org.apache.hive.jdbc.HiveDriver"; 
+//连接hive的URL hive1.2.1版本需要的是jdbc:hive2，而不是 jdbc:hive 
+public static String url = "jdbc:hive2://192.168.10.100:10000/default";
+//登录linux的用户名  一般会给权限大一点的用户，否则无法进行事务形操作
+public static String user = "hive";
+//登录linux的密码
+public static String pass = "hive";
+
+     我使用的是hive用户登录，在我的集群中hdfs的文件其他用户没有写的权限，只有读的权限，所以我将
+         //登录linux的用户名  一般会给权限大一点的用户，否则无法进行事务形操作
+public static String user = "root";
+//登录linux的密码
+public static String pass = "123456";
+
+      切换为我的管理员root用户，这样就可以执行create和insert语句了。
+
+
+
+
