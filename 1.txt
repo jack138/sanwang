@@ -1,0 +1,13 @@
+select t.* from task t where id =1639;    ##task表是任务表
+
+select t.* from task_item t where task_id = 1639;  #task_item表是测试主题表
+
+select q.* from task_item_question q where q.task_item_id = 2232; #task_item_question表是单项问题表与测试主题表是多对一的关系
+
+select k.* from task_item_question_item k where k.question_id in (405,406); #具体题目的选项表
+
+select g.* from task_user_group g where task_id =1639; #任务与用户组对应表
+
+#select g.* from task_user_group_offline_user g order by id desc;
+
+select g.* from task_user_group_user g where task_user_group_id = 1254;  #任务对应用户组的用户表
