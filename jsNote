@@ -1,0 +1,7 @@
+
+window.console.log("Success");
+
+js debug
+
+对象转json格式
+console.log(JSON.stringify(c.logicalJumpDatas));
