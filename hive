@@ -1,2 +1,13 @@
-在hive里创建一个表，定义表的属性，以','为分隔符。
+$hive进入hive shell模式，可以进行如下操作。
+操作生成的数据库、表文件可以在hadoop 网页界面里的/user/hive/warehouse目录下可以看到。
+
+1、在hive里创建一个表，定义表的属性，以','为分隔符。
 create table one(first String,second String,third int) Row format delimited fields terminated by ',';
+
+2、装载本地系统文件到表one
+LOAD DATA LOCAL INPATH '/usr/dtest.txt' OVERWRITE INTO TABLE one;
+
+3、查询表（支持count,sum函数，本人验证了）
+select * from one;
+
+
