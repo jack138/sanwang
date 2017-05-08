@@ -1,0 +1,2 @@
+在hive里创建一个表，定义表的属性，以','为分隔符。
+create table one(first String,second String,third int) Row format delimited fields terminated by ',';
