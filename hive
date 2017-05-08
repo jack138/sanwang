@@ -10,4 +10,9 @@ LOAD DATA LOCAL INPATH '/usr/dtest.txt' OVERWRITE INTO TABLE one;
 3、查询表（支持count,sum函数，本人验证了）
 select * from one;
 
+4、装载dfs系统文件到表（注意load语句不能有local,与本地文件系统进行区分）
+LOAD DATA INPATH '/user/edisonchou/events-.1493946412768' OVERWRITE INTO TABLE one;
+
+
+
 
