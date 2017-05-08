@@ -1,7 +1,18 @@
 1、flume sinks生成多个文件？  20170508
 2、flume 上传不了汉字？       20170508
 3、flume sinks如何指定拷贝过来的文件名?          20170508
+
 4、spring 怎么操作hive,hadoop?比如把查询结果存入mysql?   20170508提出
+   java等语言的客户端怎么连接并调用hive服务端进行操作？
+   
+   
+ 让Hive以提供Trift服务的服务器形式运行，允许用不同语言编写的客户端进行访问。使用Trift、JDBC和ODBC连接器的客户端需要运行Hive服务器来和Hive进行通信。通过设置HIVE_PORT环境变量来指明服务器所监听的商品号（默认为10000）。
+
+启动方式， hive –service hiveserver2  & 
+
+可以自己指定端口 hive --service hiveserver2 -p 50000 &  (&表示后台运行)
+
+bin/hive --service hiveserver2   （本人验证成功，可以启动服务，java通过代码连接并且执行Hive语句，默认端口10000，并且可以通过打印台看执行结果）
 
 
 
