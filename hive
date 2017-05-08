@@ -13,6 +13,10 @@ select * from one;
 4、装载dfs系统文件到表（注意load语句不能有local,与本地文件系统进行区分）
 LOAD DATA INPATH '/user/edisonchou/events-.1493946412768' OVERWRITE INTO TABLE one;
 
+5、Hive这次启动目录
+/usr/local/hadoop-2.8.0/tmp/dfs/name
+
+
 
 
 
