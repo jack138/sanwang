@@ -1,2 +1,27 @@
 关闭防火墙
 systemctl stop firewalld
+==================================================
+
+linux系统安装完成后启动网卡会自动获取一个ip。
+
+如果需要静态ip，则需要用vim 编辑器修改配置文件，重启网络后生效。
+
+#vim /etc/sysconfig/network-script/ifcfg-eth0
+然后对网卡文件修改
+DEVICE=eth0 #物理设备名
+IPADDR=192.168.1.100 #IP地址
+NETMASK=255.255.255.0 #掩码值
+
+NETWORK=192.168.1.0 #网络地址(可不要)
+
+BROADCAST=192.168.1.255 #广播地址（可不要）
+
+GATEWAY=192.168.1.1 #网关地址
+
+ONBOOT=yes # [yes|no]（引导时是否激活设备）
+
+USERCTL=no #[yes|no]（非root用户是否可以控制该设备）
+
+BOOTPROTO=static #[none|static|bootp|dhcp]（引导时不使用协议|静态分配|BOOTP协议|DHCP协议）
+
+====================================================================================================
