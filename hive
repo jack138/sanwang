@@ -25,6 +25,9 @@ desc 表名
 8、to_date函数将yyyy-mm-dd hh:mm:ss格式日期转换为yyyy-mm-dd格式
 hive> select * from pageclose where to_date(closetime) = '2017-05-05';
 
+9、可以这么嵌套查询
+hive> select * from (select * from temptotal) e;
+
 
 
 
