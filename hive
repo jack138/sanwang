@@ -19,6 +19,10 @@ LOAD DATA INPATH '/user/edisonchou/events-.1493946412768' OVERWRITE INTO TABLE o
 6、执行.sql文件
 source 路径/文件名.sql
 
+7、查看指定表的结构
+desc 表名
+
+
 
 
 
