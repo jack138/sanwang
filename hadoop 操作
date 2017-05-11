@@ -2,3 +2,5 @@
 [root@Master hadoop]# hadoop fs -ls /hive/warehouse
 2、建立hdfs文件系统目录
 [root@Master hadoop]# hadoop fs -mkdir /路径/新建目录名
+3、删除hdfs文件
+[root@Master usr]# hadoop fs -rm -r /usr/hive/warehouse/userlogin;
