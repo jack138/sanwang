@@ -1,0 +1,26 @@
+1  find /         -name 文件名
+     搜索路径
+
+2  hive导出表到普通文件形式并且保存为.csv格式 
+hive -e "select * from dhtest.temp_uv" >> res1.csv
+将需要的查询数据导出到 res1.csv
+[hdfs@datanode11 wangchong]$ hive -e "select * from dhtest.temp_uv" >> res1.csv
+从hdfs上导出到本地，然后通过xftp等软件将res1.csv保存到本地。
+然后用excel打开会发现全部出现在一列。这是由于没有进行分列导致的！
+
+分列有两种方法！。
+1.在shell中将csv文件进行分列符号替换，达到替换的目的。
+[hdfs@datanode11 wangchong]$ sed -i 's/,/;/g' res2.csv
+[hdfs@datanode11 wangchong]$ sed -i 's/\t/;/g' res2.csv
+具体那种符号视情况而定
+2.直接在本地打开excel文档中进行设置。
+
+3   mysql导出数据到文件
+ select * from t_test
+into outfile '/var/lib/mysql-files/test1.txt'  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+
+4   将csv文件导入Mysql
+
+注意要给文件777权限
+
+load data local infile '/tmp/zjt.csv' into table t_test fields terminated by ',' lines terminated by '\n';
