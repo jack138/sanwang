@@ -39,6 +39,13 @@ hive> select * from (select * from temptotal) e;
 load data local inpath '/root/example.txt' overwrite into table userlogin partition (inputdate='2017-05-16')
 
 
+12、use tlog;
+select concat(systemid,","), distinct concat(employeeid,","),to_date(from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss')) from userlogin where to_date(inputdate) = to_date
+
+(from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss')) group by systemid;
+
+
+
 
 
 
