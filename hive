@@ -35,6 +35,9 @@ hive> select * from (select * from temptotal) e;
   
   	添加分区（本人有疑意）
 	ALTER TABLE userlogin  ADD PARTITION(inputdate='2017-05-13');
+11、load分区表数据
+load data local inpath '/root/example.txt' overwrite into table userlogin partition (inputdate='2017-05-16')
+
 
 
 
