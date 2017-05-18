@@ -52,6 +52,11 @@ select pmod(datediff('2017-05-14','2017-01-01'),7);       周一至周日 (0-6)
 
 select pmod(datediff('2017-01-01','2017-01-02'),7) + 1;   周一至周日 （1-7）;
 
+15 distinct 必须放在第一个字段上，如果查询多个字段 select distinct a,b,c 那么就是按多个字段distinct.、
+还有一种用法是count(distinct)计算非重复结果数。
+
+
+
 
 
 
