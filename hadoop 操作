@@ -1,3 +1,13 @@
+日常操作：
+
+启动hadoop master节点系统，关闭防火墙（systemctl stop firewalld）。
+启动slave 节点系统，关闭防火墙。
+${HADOOP_HOME}/sbin/start-dfs.sh
+${HADOOP_HOME}/sbin/start-yarn.sh
+http://192.168.159.150:50070  开启namenode管理页面。
+
+
+
 1、查看hdfs文件系统目录
 [root@Master hadoop]# hadoop fs -ls /hive/warehouse
 2、建立hdfs文件系统目录
