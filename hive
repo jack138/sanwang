@@ -44,6 +44,14 @@ select concat(systemid,","), distinct concat(employeeid,","),to_date(from_unixti
 
 (from_unixtime(unix_timestamp(),'yyyy-MM-dd HH:mm:ss')) group by systemid;
 
+13 group by 分组查询可以不用聚合函数，但是必须与group by 的条件字段一致。可以用两个字段联合分组。
+例如：select systemid,employeeid from userlogin group by systemid,employeeid; 
+
+14 hive求当前日期星期几
+select pmod(datediff('2017-05-14','2017-01-01'),7);       周一至周日 (0-6)
+
+select pmod(datediff('2017-01-01','2017-01-02'),7) + 1;   周一至周日 （1-7）;
+
 
 
 
