@@ -3,3 +3,6 @@ mysql -h 10.10.134.170 -P 3306 -u root -pneusoft123
 
 2、shell 连接mysql然后将.csv导入mysql
 mysql -uroot -proot -h192.168.0.202 bdos -e "load data local infile '${csvpath}/c_diurnal_activity.csv' into table c_diurnal_activity fields terminated by '\t' lines terminated by '\n';"
+
+3、rpm安装mysql
+http://www.05935.com/85/1734621/
